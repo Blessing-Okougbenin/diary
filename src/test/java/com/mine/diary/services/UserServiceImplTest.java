@@ -2,6 +2,7 @@ package com.mine.diary.services;
 
 import com.mine.diary.dtos.requests.LoginRequest;
 import com.mine.diary.dtos.requests.RegisterRequest;
+import com.mine.diary.services.user.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +15,18 @@ import static org.assertj.core.api.Assertions.assertThat;
 class UserServiceImplTest {
     @Autowired
     private UserService userService;
+
     private RegisterRequest registerRequest;
 
     @BeforeEach
     void setUp() {
 //        userService.delete();
         registerRequest = RegisterRequest.builder()
-                .name("Joy")
-                .password("12345")
-                .email("joy@gmail.com")
+                .firstName("Elijah")
+                .lastName("Okougbenin")
+                .email("elijah@gmail.com")
+                .password("heart12345")
+                .confirmPassword("heart12345")
                 .build();
     }
 
@@ -38,13 +42,15 @@ class UserServiceImplTest {
     @Test
     void login() {
         LoginRequest loginRequest = LoginRequest.builder()
-                .email("joy@gmail.com")
-                .password("12345")
+                .email("elijah@gmail.com")
+                .password("123456789")
                 .build();
-        userService.login(loginRequest);
+        var loggedIn = userService.login(loginRequest);
         assertThat(registerRequest.getPassword().equals(loginRequest.getPassword())).isTrue();
+//        assertThat()
 
     }
+
 
     @Test
     void viewADairy() {

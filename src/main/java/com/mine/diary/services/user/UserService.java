@@ -1,8 +1,9 @@
-package com.mine.diary.services;
+package com.mine.diary.services.user;
 
-import com.mine.diary.data.models.Diary;
+import com.mine.diary.data.models.User;
 import com.mine.diary.dtos.requests.LoginRequest;
 import com.mine.diary.dtos.requests.RegisterRequest;
+import com.mine.diary.dtos.responses.LoginResponse;
 import com.mine.diary.dtos.responses.RegistrationResponse;
 
 import java.util.List;
@@ -10,11 +11,12 @@ import java.util.List;
 public interface UserService {
     RegistrationResponse register(RegisterRequest registerRequest);
     void updateProfile();
-    void createDiary(Diary diary);
-    List<Diary> viewAllDairy();
+
+    List<User> viewAllUsers();
+
     void deleteDiary();
 
-    void login(LoginRequest loginRequest);
+    LoginResponse login(LoginRequest loginRequest);
 
     void delete();
 }
