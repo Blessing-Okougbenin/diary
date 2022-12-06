@@ -1,6 +1,7 @@
 package com.mine.diary.services.user;
 
 import com.mine.diary.data.models.Diary;
+import com.mine.diary.data.models.Entry;
 import com.mine.diary.data.models.User;
 import com.mine.diary.data.repository.UserRepository;
 import com.mine.diary.dtos.requests.AddEntryRequest;
@@ -88,7 +89,6 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void deleteDiary() {
-
     }
 
 
